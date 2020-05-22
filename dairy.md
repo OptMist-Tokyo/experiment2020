@@ -28,4 +28,7 @@
   
 - 他の生徒と離れている→隣接していない、だけで実装できるのはなかろうか
 
+- 役割分担終了
+- https://github.com/OptMist-Tokyo/experiment2020/blob/master/formula1.py (by川合)
+
 - 立ち見をどのように処理するか

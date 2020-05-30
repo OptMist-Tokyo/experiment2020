@@ -18,7 +18,6 @@ def summarize(raw):
         #3行目以降
         students = [] #個人データ(名前と選好項目）
         info = ('name', 'p_blackboard', 'p_airconditioner', 'p_corner', 'p_interval') #pはpreferenceの頭文字
-        length_info = len(info) #個人データの項目数
         #1行ずつ全員分の個人データを読み込む
         for i in range(total):
             data = f.readline().split()
@@ -32,4 +31,4 @@ def summarize(raw):
 #raw_dataを受け取り，データをsummaized_dataにまとめる
 raw_data = 'input_sample1.txt' #サンプルデータ
 summarized_data = summarize(raw_data)
-print(summarized_data)
+#print(summarized_data)

@@ -188,8 +188,8 @@ model.optimize()
 # 最適解が得られた場合、結果を可視化
 if model.Status == gp.GRB.OPTIMAL:
    print("    最適解: ")
-   for i in I:
-       for j in J:
+   for i in range(N):
+       for j in range(M):
            if x[i, j].X > 0.98:
                # 学生iが前から{j//L}番目,左から{j%L}番目に座るという情報を保存
 # 可視化した画像を出力

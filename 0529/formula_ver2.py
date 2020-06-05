@@ -21,6 +21,7 @@ import gurobipy as gp
 '''
 info = ('name','u_Blackboard','u_func_BB','u_Window','u_Airconditioner','u_Edge') #選好に対応する命名
 #黒板に関しては片方だけ残しておけばよさそう
+#人との距離によって決まるinfoがまだ入っていない
 #info = ('name', 'p_blackboard', 'p_airconditioner', 'p_corner', 'p_interval') #元の定義：pはpreferenceの頭文字
 
 def summarize(raw):

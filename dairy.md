@@ -66,4 +66,7 @@
 　　└─目的関数は?  
 　　　　└─全体効用最大化 or minmax(不幸な人の不幸度を小さくする) or 安定(どの2人を入れ替えても効用が上がらない)→逐次入れ替えて規定ループ数を超えたら(or効用が上がらなくなったら)停止  
 
-
+# 6月5日
+- gurobiはめんどくさそうなので一旦pulpで頑張る(or Matlab)
+- https://colab.research.google.com/drive/1853kZ5_mNCC0okbCxjpD6TxDiXpwCeaK?usp=sharing (google colabのファイル)
+- 来週は二次以上と可視化、入力の標準化を頑張る

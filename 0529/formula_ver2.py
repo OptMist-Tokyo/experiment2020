@@ -20,6 +20,7 @@ import gurobipy as gp
 以下，.txtでの読み込みを想定
 '''
 info = ('name','u_Blackboard','u_func_BB','u_Window','u_Airconditioner','u_Edge') #選好に対応する命名
+#黒板に関しては片方だけ残しておけばよさそう
 #info = ('name', 'p_blackboard', 'p_airconditioner', 'p_corner', 'p_interval') #元の定義：pはpreferenceの頭文字
 
 def summarize(raw):

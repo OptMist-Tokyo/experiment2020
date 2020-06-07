@@ -70,3 +70,8 @@
 - gurobiはめんどくさそうなので一旦pulpで頑張る(or Matlab)
 - https://colab.research.google.com/drive/1853kZ5_mNCC0okbCxjpD6TxDiXpwCeaK?usp=sharing (google colabのファイル)
 - 来週は二次以上と可視化、入力の標準化を頑張る
+
+# 6月7日
+- 発表用スライドの仮案を作ったので、次回から実験中に暇な人はスライドに書く内容を考えていきましょう！
+-- https://drive.google.com/file/d/1TbGzVl-TYmn8V9VlzbOkfVkMCPleblbA/view?usp=sharing (by佐藤)
+-- O'Reilly本のパロディです

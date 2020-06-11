@@ -75,3 +75,5 @@
 - 発表用スライドの仮案を作ったので、次回から実験中に暇な人はスライドに書く内容を考えていきましょう！
 -- https://drive.google.com/file/d/1TbGzVl-TYmn8V9VlzbOkfVkMCPleblbA/view?usp=sharing (by佐藤) 
 -- O'Reilly本のパロディです
+
+- みんなで編集するときは https://drive.google.com/file/d/1TbGzVl-TYmn8V9VlzbOkfVkMCPleblbA/view?usp=sharing を使う

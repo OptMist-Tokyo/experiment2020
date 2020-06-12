@@ -18,30 +18,30 @@ def summarize(raw):
         total = int(f.readline()) #2行目：学生の総数
 
         #3行目以降
-        students = [] #個人データ(名前と選好項目）
+        #studentsは key:[選好度] の形の辞書
+        students = {key:[] for key in info} #選好項目ごとに値をリストにまとめる
         #1行ずつ全員分の個人データを読み込む
         for i in range(total):
             data = f.readline().split()
             data[1:5] = map(int, data[1:5]) #先頭のname, 末尾のNextTo以外の要素をint型に変換
-            students.append(dict(zip(info, data))) #infoをkeyにして個人データを1人分ずつ辞書にまとめる
-
+            j = 0
+            for key in info:
+                students[key].append(data[j])
+                j += 1
+        
     summarized = (row, column, total, students)
     return summarized
-
-#summarized_dataにおいて，指定された番号num_of_studentの学生について，そのNextToに対応する学生の番号を返す
-#nameの値が重複する学生はいないことを仮定
-def find_num(num_of_student):
-    i = 0
-    nextto = summarized_data[3][num_of_student]['NextTo']
-    while i < summarized_data[2]:
-        if summarized_data[3][i]['name'] == nextto:
-            return i #もし見つかれば番号を返す
-        i += 1
-    return -1 #見つからなければ-1を返す
-
 
 #raw_dataを受け取り，データをsummarized_dataにまとめる
 raw_data = 'input_sample_full1.txt' #サンプルデータ
 summarized_data = summarize(raw_data)
 
 #NextToの値-1もstr型であることに注意
+
+
+#計算用にsummarized_data[3]からリストの値をコピー
+u_Blackboard = summarized_data[3]['Blackboard'][:]
+u_Window = summarized_data[3]['Window'][:]
+u_Airconditioner = summarized_data[3]['Airconditioner'][:]
+u_Edge = summarized_data[3]['Edge'][:]
+u_NextTo = summarized_data[3]['NextTo'][:]

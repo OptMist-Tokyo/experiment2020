@@ -91,3 +91,6 @@
 - 結果の画像が正しく出るようデバッグ
 - インプットのやり方を考える(txtファイルでもいいけど、GUIのボタンとかで簡単に入力できると良さそう)(イメージとしては  https://qiita.com/nnahito/items/ad1428a30738b3d93762)
 - スライド作成→体裁は置いといて、とりあえず書く内容を決める(https://drive.google.com/file/d/1TbGzVl-TYmn8V9VlzbOkfVkMCPleblbA/view?usp=sharing で編集できます)
+
+https://jp.mathworks.com/help/optim/ug/quadprog.html
+https://jp.mathworks.com/help/optim/examples/mixed-integer-quadratic-programming-portfolio-optimization.html

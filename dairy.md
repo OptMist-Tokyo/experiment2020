@@ -94,3 +94,5 @@
 
 https://jp.mathworks.com/help/optim/ug/quadprog.html
 https://jp.mathworks.com/help/optim/examples/mixed-integer-quadratic-programming-portfolio-optimization.html
+
+- https://drive.google.com/file/d/1NVqSoPD67hcpvCG6Mv4FVpW_fgdqgIVz/view (by大中)

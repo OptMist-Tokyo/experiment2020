@@ -96,3 +96,6 @@ https://jp.mathworks.com/help/optim/ug/quadprog.html
 https://jp.mathworks.com/help/optim/examples/mixed-integer-quadratic-programming-portfolio-optimization.html
 
 - https://drive.google.com/file/d/1NVqSoPD67hcpvCG6Mv4FVpW_fgdqgIVz/view (by大中)
+
+# 6月19日
+- booleanをTrueにするととんでもなく時間がかかるので、今回はinteger制約にして、かつ非負制約にすることで改善(?)

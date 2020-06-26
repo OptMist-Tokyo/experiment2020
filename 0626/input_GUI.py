@@ -191,10 +191,10 @@ def create_checkWindow(detailWindow, inputs_list):
         for j in range(lengthofInfo+1):
             widgets_list[i][j].grid(row = i+3, column = j)
 
-    #(total+2)行目：修正ボタン
+    #(total+3)行目：修正ボタン
     modify_button = tk.Button(checkWindow, text = '修正する', command = checkWindow.destroy) #修正する場合は確認画面を閉じ，詳細入力画面に戻る
     modify_button.grid(row = total + 3, column = 2, columnspan = 3)
-    #(total+3)行目：決定ボタン
+    #(total+4)行目：決定ボタン
     check_button = tk.Button(checkWindow, text = '決定する', command = lambda:summarize(inputs_list)) #確定する場合は，詳細データを格納
     check_button.grid(row = total + 4, column = 2, columnspan = 3)
 

@@ -5,6 +5,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 
 
+#自然数か否か判定
 def is_N(entry):
     if entry.isdecimal() and int(entry) > 0:
         return True
@@ -12,6 +13,7 @@ def is_N(entry):
         return False
 
 
+#rootウィンドウの内容確認
 def check_root(root, val0, val1, val2, warning):
     #型判定
     if is_N(val0) and is_N(val1) and is_N(val2):
@@ -27,6 +29,7 @@ def check_root(root, val0, val1, val2, warning):
         warning['text'] = '正の整数を入力してください。'
 
 
+#rootウィンドウの生成
 def create_root(root):
     root.title(u"Seat Arrangement Optimizer")
 
@@ -55,6 +58,7 @@ def create_root(root):
     nextButton.grid(row=5, column=0, columnspan = 2)
 
 
+#選好入力用ウィンドウの入力欄作成
 def create_widgets(window, i):
     choice = [str(j+1) for j in range(5)]
     widgets = [tk.Label(window, text='{}人目'.format(str(i+1)))]
@@ -66,6 +70,7 @@ def create_widgets(window, i):
     return widgets
 
 
+#選好入力用ウィンドウの内容確認
 def check_detailWindow(detailWindow, inputs_list, warnings):
     total = summarized_data_forDemo[2]
     choice = [str(j+1) for j in range(5)]
@@ -113,6 +118,7 @@ def check_detailWindow(detailWindow, inputs_list, warnings):
             create_checkWindow(detailWindow, inputs_list)
 
 
+#選好入力用のウィンドウの生成
 def create_detailWindow(root):
     detailWindow = tk.Toplevel(root)
     total = summarized_data_forDemo[2]
@@ -157,6 +163,7 @@ def create_detailWindow(root):
     check_button.grid(row = total + 4, column = 2, columnspan = 3)
 
 
+#確認画面のウィジェット生成
 def create_widgetsforCheck(window, inputs_list, i):
     choice = [str(j+1) for j in range(5)]
     widgets = [tk.Label(window, text='{}人目'.format(str(i+1)))]
@@ -165,6 +172,7 @@ def create_widgetsforCheck(window, inputs_list, i):
     return widgets
 
 
+#確認画面の生成
 def create_checkWindow(detailWindow, inputs_list):
     checkWindow = tk.Toplevel(detailWindow)
     total = summarized_data_forDemo[2]
@@ -199,6 +207,7 @@ def create_checkWindow(detailWindow, inputs_list):
     check_button.grid(row = total + 4, column = 2, columnspan = 3)
 
 
+#結果を summarized_data_forDemo にまとめる
 def summarize(inputs_list):
     global summarized_data_forDemo
     students = {key:[] for key in info} #選好項目ごとに値をリストにまとめる
@@ -226,11 +235,14 @@ info = ('name', 'Blackboard', 'Window','Airconditioner','Edge','NextTo')
 info_j = ('名前', '黒板の近くの席がいい', '窓のそばの席がいい', 'エアコンから離れた席がいい', '端の席がいい', '知り合いの隣がいい')
 lengthofInfo = len(info)
 
-summarized_data_forDemo = []
+#入力を格納するリスト。前のコードだと summarized_data に相当。
+#これはデモ用として，実際の計算の際には前と同様に.txtのデータを使って summarized_data にまとめる方がいいかも（入力が大変なので）。
+summarized_data_forDemo = [] 
 
-
+#GUIの作成
 root = tk.Tk()
 create_root(root)
 root.mainloop()
 
+#結果の確認
 #print(summarized_data_forDemo)

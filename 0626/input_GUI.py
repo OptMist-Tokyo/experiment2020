@@ -173,20 +173,20 @@ def create_checkWindow(detailWindow, inputs_list):
     instruction = tk.Label(checkWindow, text = '確認')
     instruction.grid(row = 0, column = 3, columnspan = 2)
 
-    #1行目；教室サイズ
+    #1行目；入力内容の確認表示（教室サイズ）
     label1 = tk.Label(checkWindow, text = '縦：'+ str(summarized_data_forDemo[0]))
     label1.grid(row = 1, column = 3)
     label2 = tk.Label(checkWindow, text = '横：'+ str(summarized_data_forDemo[1]))
     label2.grid(row = 1, column = 4)
 
-    #2行目：各学生の選好
+    #2行目：選好名
     for i in range(lengthofInfo):
         label = tk.Label(checkWindow, text=info_j[i])
         label.grid(row = 2, column = i+1)
 
     widgets_list = [create_widgetsforCheck(checkWindow, inputs_list, i) for i in range(total)]
 
-    #3~(total+2)行目：入力欄
+    #3~(total+2)行目：入力内容の確認表示（各学生の選好項目）
     for i in range(total):
         for j in range(lengthofInfo+1):
             widgets_list[i][j].grid(row = i+3, column = j)

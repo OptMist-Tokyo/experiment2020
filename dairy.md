@@ -104,3 +104,11 @@ https://jp.mathworks.com/help/optim/examples/mixed-integer-quadratic-programming
 - 名前を入れた。矢印は片方向。大きさ調整→こちらの想定している出力をまずは私ておく
 - スライドやっていた。入力について、まずは規格を決めておきたい。なる早→
 - スライドと、普通のコードをチェックした
+
+# 6月26日
+- 線形化の実装をした。メモリが破壊されたので疎行列表現にしてなんとかした
+- 計算はできるようになったのだが、計算時間が爆発していたのでほっといた。結局局所最適解なんかを推していく形になると思う。
+
+# 7月2日
+- スライドの確認 (https://drive.google.com/file/d/1xe9vtNbDphGbW2lZ8_LZ7k1wXD6k8em5/view?usp=sharing)
+- 現在までに完成したコード (https://drive.google.com/drive/folders/1-K2RxuPSJe0afatQ3-tFSw2nPdWrqHgE?usp=sharing)

@@ -5,7 +5,6 @@ import tkinter as tk
 import tkinter.ttk as ttk
 
 
-#自然数か否か判定
 def is_N(entry):
     if entry.isdecimal() and int(entry) > 0:
         return True
@@ -13,7 +12,6 @@ def is_N(entry):
         return False
 
 
-#rootウィンドウの内容確認
 def check_root(root, val0, val1, val2, warning):
     #型判定
     if is_N(val0) and is_N(val1) and is_N(val2):
@@ -26,10 +24,9 @@ def check_root(root, val0, val1, val2, warning):
         else:
             warning['text'] = '定員オーバーです。'
     else:
-        warning['text'] = '正の整数を入力してください。'
+        warning['text'] = '1以上の整数を半角で入力してください。'
 
 
-#rootウィンドウの生成
 def create_root(root):
     root.title(u"Seat Arrangement Optimizer")
 
@@ -58,9 +55,8 @@ def create_root(root):
     nextButton.grid(row=5, column=0, columnspan = 2)
 
 
-#選好入力用ウィンドウの入力欄作成
 def create_widgets(window, i):
-    choice = [str(j+1) for j in range(5)]
+    choice = [str(j+1) for j in range(10)]
     widgets = [tk.Label(window, text='{}人目'.format(str(i+1)))]
     widgets.append(tk.Entry(window, width = 15))
     for j in range(lengthofInfo-2):
@@ -70,10 +66,9 @@ def create_widgets(window, i):
     return widgets
 
 
-#選好入力用ウィンドウの内容確認
 def check_detailWindow(detailWindow, inputs_list, warnings):
     total = summarized_data_forDemo[2]
-    choice = [str(j+1) for j in range(5)]
+    choice = [str(j+1) for j in range(10)]
     
     flag0 = True #名前
     flag1 = True #選好の値
@@ -83,7 +78,7 @@ def check_detailWindow(detailWindow, inputs_list, warnings):
     for i in range(total):
         tmp = [inputs_list[i][0] for i in range(summarized_data_forDemo[2])]
         if inputs_list[i][0] == '': #名前欄が空の場合
-            warnings[0]['text'] = '全ての欄に名前を入れてください。'
+            warnings[0]['text'] = '全ての欄に名前を入力してください。'
             flag0 = False
         elif tmp.count(inputs_list[i][0]) > 1: #名前が被っている場合
             warnings[0]['text'] = '名前が重複しています。'
@@ -95,7 +90,7 @@ def check_detailWindow(detailWindow, inputs_list, warnings):
     for i in range(total):
         for j in range(lengthofInfo - 2):
             if not (inputs_list[i][j+1] in choice): #1~5の整数以外の入力は全て違反
-                warnings[1]['text'] = '1~5の整数で入力してください。'
+                warnings[1]['text'] = '1~10の整数を半角で入力してください。'
                 flag1 = False
     if flag1:
         warnings[1]['text'] = ''
@@ -118,7 +113,6 @@ def check_detailWindow(detailWindow, inputs_list, warnings):
             create_checkWindow(detailWindow, inputs_list)
 
 
-#選好入力用のウィンドウの生成
 def create_detailWindow(root):
     detailWindow = tk.Toplevel(root)
     total = summarized_data_forDemo[2]
@@ -163,16 +157,14 @@ def create_detailWindow(root):
     check_button.grid(row = total + 4, column = 2, columnspan = 3)
 
 
-#確認画面のウィジェット生成
 def create_widgetsforCheck(window, inputs_list, i):
-    choice = [str(j+1) for j in range(5)]
+    #choice = [str(j+1) for j in range(10)]
     widgets = [tk.Label(window, text='{}人目'.format(str(i+1)))]
     for j in range(lengthofInfo):
         widgets.append(tk.Label(window, text = inputs_list[i][j]))
     return widgets
 
 
-#確認画面の生成
 def create_checkWindow(detailWindow, inputs_list):
     checkWindow = tk.Toplevel(detailWindow)
     total = summarized_data_forDemo[2]
@@ -181,20 +173,20 @@ def create_checkWindow(detailWindow, inputs_list):
     instruction = tk.Label(checkWindow, text = '確認')
     instruction.grid(row = 0, column = 3, columnspan = 2)
 
-    #1行目；入力内容の確認表示（教室サイズ）
+    #1行目；入力内容（教室サイズ）
     label1 = tk.Label(checkWindow, text = '縦：'+ str(summarized_data_forDemo[0]))
     label1.grid(row = 1, column = 3)
     label2 = tk.Label(checkWindow, text = '横：'+ str(summarized_data_forDemo[1]))
     label2.grid(row = 1, column = 4)
 
-    #2行目：選好名
+    #2行目：各学生の選好項目
     for i in range(lengthofInfo):
         label = tk.Label(checkWindow, text=info_j[i])
         label.grid(row = 2, column = i+1)
 
     widgets_list = [create_widgetsforCheck(checkWindow, inputs_list, i) for i in range(total)]
 
-    #3~(total+2)行目：入力内容の確認表示（各学生の選好項目）
+    #3~(total+2)行目：入力内容（各学生の選好項目）
     for i in range(total):
         for j in range(lengthofInfo+1):
             widgets_list[i][j].grid(row = i+3, column = j)
@@ -207,7 +199,6 @@ def create_checkWindow(detailWindow, inputs_list):
     check_button.grid(row = total + 4, column = 2, columnspan = 3)
 
 
-#結果を summarized_data_forDemo にまとめる
 def summarize(inputs_list):
     global summarized_data_forDemo
     students = {key:[] for key in info} #選好項目ごとに値をリストにまとめる
@@ -235,14 +226,11 @@ info = ('name', 'Blackboard', 'Window','Airconditioner','Edge','NextTo')
 info_j = ('名前', '黒板の近くの席がいい', '窓のそばの席がいい', 'エアコンから離れた席がいい', '端の席がいい', '知り合いの隣がいい')
 lengthofInfo = len(info)
 
-#入力を格納するリスト。前のコードだと summarized_data に相当。
-#これはデモ用として，実際の計算の際には前と同様に.txtのデータを使って summarized_data にまとめる方がいいかも（入力が大変なので）。
-summarized_data_forDemo = [] 
+summarized_data_forDemo = []
 
-#GUIの作成
+
 root = tk.Tk()
 create_root(root)
 root.mainloop()
 
-#結果の確認
 #print(summarized_data_forDemo)

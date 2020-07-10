@@ -112,3 +112,6 @@ https://jp.mathworks.com/help/optim/examples/mixed-integer-quadratic-programming
 # 7月2日
 - スライドの確認 (https://drive.google.com/file/d/1xe9vtNbDphGbW2lZ8_LZ7k1wXD6k8em5/view?usp=sharing)
 - 現在までに完成したコード (https://drive.google.com/drive/folders/1-K2RxuPSJe0afatQ3-tFSw2nPdWrqHgE?usp=sharing)
+
+# 7月10日
+- 発表です

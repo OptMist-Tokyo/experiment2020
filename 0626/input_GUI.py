@@ -40,7 +40,7 @@ def create_root(root):
     entryforRow = tk.Entry(root)
     entryforRow.grid(row = 1, column = 1)
 
-    labe1forColumn = tk.Label(root, text = '縦')
+    labe1forColumn = tk.Label(root, text = '横')
     labe1forColumn.grid(row=2, column = 0) 
     entryforColumn = tk.Entry(root)
     entryforColumn.grid(row = 2, column = 1)
@@ -59,7 +59,7 @@ def create_root(root):
 
 #選好入力用ウィンドウの入力欄作成
 def create_widgets(window, i):
-    choice = [str(j+1) for j in range(10)]
+    choice = [str(j) for j in range(10+1)]
     widgets = [tk.Label(window, text='{}人目'.format(str(i+1)))]
     widgets.append(tk.Entry(window, width = 15))
     for j in range(lengthofInfo-2):
@@ -72,7 +72,7 @@ def create_widgets(window, i):
 #選好入力用ウィンドウの内容確認
 def check_detailWindow(detailWindow, inputs_list, warnings):
     total = summarized_data_forDemo[2]
-    choice = [str(j+1) for j in range(10)]
+    choice = [str(j) for j in range(10+1)]
     
     flag0 = True #名前
     flag1 = True #選好の値
@@ -91,11 +91,22 @@ def check_detailWindow(detailWindow, inputs_list, warnings):
         warnings[0]['text'] = ''
     
     #1~4列目：数字で選ぶ選好の確認
-    for i in range(total):
-        for j in range(lengthofInfo - 2):
+    i = 0
+    while i < total:
+        j = 0
+        while j < lengthofInfo - 2:
             if not (inputs_list[i][j+1] in choice): #1~5の整数以外の入力は全て違反
-                warnings[1]['text'] = '1~10の整数を半角で入力してください。'
+                warnings[1]['text'] = '0~10の整数を半角で入力してください。'
                 flag1 = False
+                break
+            j += 1
+        if flag:
+            break
+        elif sum(inputs_list[i][1:lengthofInfo-1]) != 10: #選好度の合計は10でなければならない
+            warnings[1]['text'] = '合計が10になるよう入力してください。'
+            flag1 = False
+            break
+        i += 1
     if flag1:
         warnings[1]['text'] = ''
     
@@ -121,6 +132,9 @@ def check_detailWindow(detailWindow, inputs_list, warnings):
 def create_detailWindow(root):
     detailWindow = tk.Toplevel(root)
     total = summarized_data_forDemo[2]
+
+    #学生数が大きい場合に備えてスクロールバーが必要
+    #だが実装が間に合わず……
 
     #0行目：指示
     txt = '名前と希望の度合いを入力してください。'
@@ -174,6 +188,8 @@ def create_widgetsforCheck(window, inputs_list, i):
 def create_checkWindow(detailWindow, inputs_list):
     checkWindow = tk.Toplevel(detailWindow)
     total = summarized_data_forDemo[2]
+
+    #学生数が大きい場合に備えてスクロールバーが必要
 
     #0行目：指示
     instruction = tk.Label(checkWindow, text = '確認')
